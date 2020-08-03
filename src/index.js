@@ -123,10 +123,6 @@ class Game extends React.Component {
   }
 }
 
-// ========================================
-
-ReactDOM.render(<Game />, document.getElementById("root"));
-
 function calculateWinner(squares) {
   const lines = [
     [0, 1, 2],
@@ -146,3 +142,30 @@ function calculateWinner(squares) {
   }
   return null;
 }
+
+//**************************************************************************************
+
+/*React isn't allowing me to render multiple tags in the same components, so I have to use more of them*/
+class Title extends React.Component {
+  render() {
+    return (<h1>Clicker APP</h1>);
+  }
+}
+
+class Button extends React.Component {
+  render() {
+    return (<button>CLICK ME</button>);
+  }
+}
+
+class Counter extends React.Component {
+  render() {
+    return (<h3>Total clicks 96</h3>);
+  }
+}
+
+// ========================================
+ReactDOM.render(<div><Game /><Title /><Button /><Counter /></div>, document.getElementById("root"));
+
+
+
