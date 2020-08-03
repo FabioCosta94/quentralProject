@@ -148,24 +148,38 @@ function calculateWinner(squares) {
 /*React isn't allowing me to render multiple tags in the same components, so I have to use more of them*/
 class Title extends React.Component {
   render() {
-    return (<h1>Clicker APP</h1>);
+    return (<h1 className="title">Clicker APP</h1>);
   }
 }
 
 class Button extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      clicks: 0,
+    };
+  }
+
+  Increment = () => {
+    this.setState({clicks: this.state.clicks +1})
+  }
+
   render() {
-    return (<button>CLICK ME</button>);
+    return (
+      <div>
+    <button className="primary" onClick={this.Increment}>CLICK ME</button>
+    <h2>Total clicks: {this.state.clicks}</h2>
+    </div>
+    );
+    
   }
 }
 
-class Counter extends React.Component {
-  render() {
-    return (<h3>Total clicks 96</h3>);
-  }
-}
+
 
 // ========================================
-ReactDOM.render(<div><Game /><Title /><Button /><Counter /></div>, document.getElementById("root"));
+ReactDOM.render(<div><Game /><Title /><Button /></div>, document.getElementById("root"));
 
 
 
